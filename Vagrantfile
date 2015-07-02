@@ -12,8 +12,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.network :forwarded_port, host: 4568, guest: 80
-  config.vm.box_version = 0.1
+  config.vm.network :forwarded_port, host: 4568, guest: 9031
+  config.vm.network :forwarded_port, host: 4569, guest: 8510
+  #config.vm.box_version = 0.1
+  config.ssh.insert_key = false
+
   
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -47,13 +50,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider :virtualbox do |vb|
+  config.vm.provider :virtualbox do |vb|
   #   # Don't boot with headless mode
   #   vb.gui = true
-  #
-  #   # Use VBoxManage to customize the VM. For example to change memory:
-  #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  # end
+     # Use VBoxManage to customize the VM. For example to change memory:
+     vb.customize ["modifyvm", :id, "--memory", "2048"]
+  end
   #
   # View the documentation for the provider you're using for more
   # information on available options.

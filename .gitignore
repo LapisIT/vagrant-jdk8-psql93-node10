@@ -1,2 +1,7 @@
 .vagrant
 html
+ridonline-core/
+ridonline-data/
+ridonline-private-service/
+ridonline-private/
+
