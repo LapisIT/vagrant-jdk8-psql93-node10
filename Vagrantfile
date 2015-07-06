@@ -14,10 +14,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.network :forwarded_port, host: 4568, guest: 9031
   config.vm.network :forwarded_port, host: 4569, guest: 8510
+  config.vm.network :forwarded_port, host: 35777, guest: 35777
+  config.vm.network :forwarded_port, host: 9009, guest: 9009
+  config.vm.network :forwarded_port, host: 9011, guest: 9011
   #config.vm.box_version = 0.1
   config.ssh.insert_key = false
 
-  
+
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
